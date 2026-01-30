@@ -1,2 +1,3 @@
 # guirust_habr
-Rust GUI - Example
+Код для статьи на Хабре.
+
