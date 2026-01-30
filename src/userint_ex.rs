@@ -25,7 +25,6 @@ pub fn quit_user_interface() -> c_int {
 		let mut panel_data: i32 = 0;
 		let mut control_data: i32 = 0;
 		GetUserEvent(0, &mut panel_data as *mut i32, &mut control_data as *mut i32);
-		//HidePanel(PANEL as i32);
 		RunUserInterface();
 		QuitUserInterface(0);
 		return ret;
@@ -36,9 +35,6 @@ pub fn quit_user_interface() -> c_int {
 pub fn load_panel_ex(reserved: c_int, uir_file: *const c_char, panel: i32) -> c_int {
 	unsafe { LoadPanelAnsi(reserved, uir_file, panel as i32) }
 }
-//pub fn DisplayPanel(panel_handle: c_int) -> c_int;
-//pub fn RunUserInterface() -> c_int;
-//pub fn DiscardPanel(panel_handle: c_int) -> c_int;
 
 #[inline(always)]
 pub fn set_localized_decimal_symbol(enable: bool) {
@@ -46,9 +42,6 @@ pub fn set_localized_decimal_symbol(enable: bool) {
 		if enable {
 			SetSystemAttributeAnsi(ATTR_USE_LOCALIZED_DECIMAL_SYMBOL as i32, 1);
 		} else {
-			// SetSystemAttributeAnsi(ATTR_USE_LOCALIZED_DECIMAL_SYMBOL as i32, 1);
-			// This is the default behavior, so we can skip setting it to 1
-			// unless we want to explicitly disable localized decimal symbols.
 			SetSystemAttributeAnsi(ATTR_USE_LOCALIZED_DECIMAL_SYMBOL as i32, 0);
 		}
 	}
@@ -102,7 +95,4 @@ pub fn get_ctrl_val_f64(panel: i32, control: i32) -> f64 {
 unsafe extern "C" {
 	pub fn InitCVIRTE(reserved: c_int, argv: *const *const c_char, reserved2: c_int) -> c_int;
 	pub fn LoadPanel(reserved: c_int, uir_file: *const c_char, panel: c_int) -> c_int;
-	//pub fn DisplayPanel(panel_handle: c_int) -> c_int;
-	//pub fn RunUserInterface() -> c_int;
-	//pub fn DiscardPanel(panel_handle: c_int) -> c_int;
 }
