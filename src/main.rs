@@ -1,12 +1,4 @@
-//==============================================================================
-//
-// Title:		SpiderChart
-// Purpose:		Drawing of the Spider Chart Diagram (Net Summary Plot)
-//
-// Created on:	25.06.2025 at 08:57:26 by AD.
-//
-//==============================================================================
-
+// CVI Rust UI Example
 use std::{
 	ffi::{CString, NulError},
 	os::raw::{c_char, c_int, c_void},
